@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-int main () {
+int main() {
     std::string filename = "input_scode.txt";
     std::fstream file;
     std::ofstream outputFile;
@@ -24,6 +24,11 @@ int main () {
     }
 
     outputFile.close();
-    
+
+    //implimentaion of FSA for "While"
+    //string result = FSA("while", 5);
+    //cout << result;
+
     return 0;
 }
+
