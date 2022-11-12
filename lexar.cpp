@@ -26,13 +26,9 @@ int main() {
     outputFile.close();
 
     //implimentaion of FSA for "While"
-    //if (FSA("while", 5)) {
-       // cout << "pass";
-    //}
-    //else {
-        //cout << "fail";
-    //}
+    //string result = FSA("while", 5);
+    //cout << result;
 
-    //return 0;
+    return 0;
 }
 

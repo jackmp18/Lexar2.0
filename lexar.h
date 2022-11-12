@@ -61,7 +61,7 @@ bool q4() { // final state
 bool q3(string input, int location, int length) {
     if (input[location] == 'e' && location <= length) {
         location++;
-        q4();
+        return true;
     }
     else {
         return false;
@@ -71,7 +71,7 @@ bool q3(string input, int location, int length) {
 bool q2(string input, int location, int length) {
     if (input[location] == 'l' && location <= length) {
         location++;
-        q3(input, location, length);
+        return true;
     }
     else {
         return false;
@@ -81,7 +81,7 @@ bool q2(string input, int location, int length) {
 bool q1(string input, int location, int length) {
     if (input[location] == 'i' && location <= length) {
         location++;
-        q2(input, location, length);
+        return true;
     }
     else {
         return false;
@@ -95,7 +95,7 @@ bool q0(string input, int location, int length) {
     }
     else if (input[location] == 'h' && location <= length && input[location - 1] == 'w') { // also W to insure case such as "hile"
         location++;
-        q1(input, location, length);
+        return true;
     }
     else {
         return false;
@@ -104,10 +104,36 @@ bool q0(string input, int location, int length) {
 
 
 
-bool FSA(string input, int length) {
-    return q0(input, 0, length);
+string FSA(string input, int length) {
+    int i = 0;
+    if (q0(input, i, length)) {
+        i++;
+        i++;
+        if (q1(input, i, length)) {
+            i++;
+            if (q2(input, i, length)) {
+                i++;
+                if (q3(input, i, length)) {
+                    if (q4()) {
+                        return "Accept Q4";
+                    }
+                }
+                else {
+                    return "Regect Q3";
+                }
+            }
+            else {
+                return "Regect Q2";
+            }
+        }
+        else {
+            return "Regect Q1";
+        }
+    }
+    else {
+        return "Regect Q0";
+    }
 }
-
 
 
 
